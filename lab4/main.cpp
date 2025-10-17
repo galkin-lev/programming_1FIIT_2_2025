@@ -18,7 +18,6 @@ using namespace std;
 // Функция для проверки, начинается ли число с цифры 1
 
 const int matrixDefaultSize = 100;
-// int m = 100;
 
 void printArray(int arr[], int size) {
     cout << "[";
@@ -49,13 +48,14 @@ void printMatrix(int matrix[][matrixDefaultSize], int n, int m) {
 }
 
 
-// 1 exercise functions
+// 1 exercise functions ////////////////////////////////////////////////
 bool startsWithOne(int num) { // with string
     string str = to_string(num);
     return !str.empty() && str[0] == '1';
 }
+////////////////////////////////////////////////////////////////////////
 
-// 2 exercise functions
+// 2 exercise functions ////////////////////////////////////////////////
 int getFirstDigit(int number) { // by dividing by 10
     if (number == 0) return 0;
     number = abs(number);
@@ -85,8 +85,9 @@ bool compare(int a, int b) { // compare function for sort
 
     return a < b;
 }
+////////////////////////////////////////////////////////////////////////
 
-// 3 exercise
+// 3 exercise //////////////////////////////////////////////////////////
 int findMaxIndex(int arr[], int size) {
     if (size < 0) return -1; // Handle empty array
 
@@ -98,6 +99,38 @@ int findMaxIndex(int arr[], int size) {
     }
     return maxIndex;
 }
+////////////////////////////////////////////////////////////////////////
+// 4 exercise //////////////////////////////////////////////////////////
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+
+    for (int i = 3; i <= sqrt(n); i += 2) { // heavy
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    cout << "found prime number " << n <<  ". doubling..." << endl;
+    return true;
+}
+bool contains7not6(int num) {
+    if (num == 7) return true;
+    string numStr = to_string(num);
+    bool has7 = false;
+    bool has6 = false;
+
+    for (char digit : numStr) {
+        if (digit == '7') has7 = true;
+        if (digit == '6') has6 = true;
+    }
+
+    return (has7 && !has6);
+}
+////////////////////////////////////////////////////////////////////////
+
+
+
 
 int main() {
 
@@ -120,8 +153,10 @@ int main() {
 
 
               // var 1
-/*1.  Дана последовательность натуральных чисел {aj}j=1...n (n<=10000). Если в последовательности есть хотя
- *бы одно число, начинающееся цифрой 1, упорядочить последовательность по неубыванию.*/
+/*
+ * 1.  Дана последовательность натуральных чисел {aj}j=1...n (n<=10000). Если в последовательности есть хотя
+ * бы одно число, начинающееся цифрой 1, упорядочить последовательность по неубыванию.
+ */
         if (tasknum == 1) { // 1 задание
 
             unsigned int n;
@@ -306,9 +341,99 @@ int main() {
 
 
         }
+
+/*
+* 4. Дана последовательность натуральных чисел {Aj}j=1...n (n<=10000). Удалить из последовательности числа, содержащие цифру 7, но не содержащие
+* цифру 6, а среди оставшихся продублировать простые числа.(Сначала введите последовательность. Затем удалите и продублируйте элементы.
+* Затем выведите полученную последовательность (каждый элемент по одному разу). Используйте в программе только один массив.)
+ */
         if (tasknum == 4) {
+            cout << "Enter sequence size (n) (n<=10000) : ";
+            unsigned int n;
+            while ( true  ) {
+                cout << "Enter sequence size (n) (n<=10000) : ";
+                cin >> n;
+
+                if ( cin.fail() || n > 10000 ) {
+                    cin.clear(); // Clear error flag
+                    cin.ignore( numeric_limits< streamsize>::max(), '\n'); // Discard bad input
+                    cout << "Invalid input. Please enter a valid number.\n";
+                } else {
+                    break; // Exit loop on valid input
+                }
+            }
+            int sequence[n]; // why
+            // fill the sequence
+            for (int i = 0; i < n; ++i) {
+
+
+                while ( true  ) {
+                    cout << "Enter number №" << i << " of the sequence (should be a natural number):";
+
+                    cin >> sequence[i];
+
+                    if ( cin.fail() || sequence[i] < 0) { // Проверка, что число натуральное (положительное)
+                        cin.clear(); // Clear error flag
+                        cin.ignore( numeric_limits< streamsize>::max(), '\n'); // Discard bad input
+                        cout << "Invalid input. Please enter a valid number.\n";
+                    } else {
+                        break; // Exit loop on valid input
+                    }
+                }
+            } // copy from first ( enter sequence )
+
+            cout << "entered sequence:";
+            printArray(sequence, n);
+            cout << " of size: " << (sizeof(sequence)/sizeof(sequence[0])) << endl;
+
+            // for ( unsigned int i = 0; i < n; ++i ) {
+            //     if (to_string(sequence[i]).find_first_of('7') != string::npos && !to_string(sequence[i]).find_first_of('6') != string::npos) {
+            //         // for (int j = i; j < n - 1; ++j) {
+            //         //     sequence[j] uence[j + 1];
+            //             sequence[n] = NULL;
+            //
+            //         // }
+            //         --n;
+            //         cout << "sequence size: " << n << endl;
+            //     }
+            // }
+
+            // recreating filtered array
+            int newSize = 0;
+            for (int i = 0; i < n; i++) {
+                if (!contains7not6(sequence[i])) {
+                    sequence[newSize] = sequence[i]; // basically a new array from the old one
+                    newSize++;
+                } else {
+                    cout << "found a number with 7 and without 6: " << sequence[i] << ". deleting..." << endl;
+                }
+            }
+
+            // doubling prime numbers
+            for (int i = 0; i < newSize; i++) {
+                if (isPrime(sequence[i])) {
+
+                    // move all numbers after prime -> right (from the end)
+                    for (int j = newSize; j > i + 1; j--) {
+                        sequence[j] = sequence[j - 1];
+                    }
+
+                    // in vacant place insert a duplicate prime number
+                    sequence[i + 1] = sequence[i];
+                    newSize++;
+                    i++;
+                }
+            }
+
+
+            cout << "sorted sequence:";
+            printArray(sequence, newSize); cout << endl;
+
+
 
         }
+
+
         if (tasknum != 1 && tasknum != 2 && tasknum != 3 && tasknum != 4) {
             cout << "exiting..." << endl;
             return 0;
