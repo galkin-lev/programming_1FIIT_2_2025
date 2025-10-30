@@ -280,7 +280,7 @@ int main() {
                 cout << "Enter matrix size (n) (n<=100) rows : ";
                 cin >> n;
 
-                if ( cin.fail() || n > 100 ) {
+                if ( cin.fail() || n > 100 || n < 1) {
                     cin.clear(); // Clear error flag
                     cin.ignore( numeric_limits< streamsize>::max(), '\n'); // Discard bad input
                     cout << "Invalid input. Please enter a valid number.\n";
@@ -288,11 +288,12 @@ int main() {
                     break; // Exit loop on valid input
                 }
             }
+
             while ( true  ) {
                 cout << "Enter matrix size (m) (m<=100) columns : ";
                 cin >> m;
 
-                if ( cin.fail() || m > 100 ) {
+                if ( cin.fail() || m > 100 || m < 1 ) {
                     cin.clear(); // Clear error flag
                     cin.ignore( numeric_limits< streamsize>::max(), '\n'); // Discard bad input
                     cout << "Invalid input. Please enter a valid number.\n";
@@ -312,18 +313,21 @@ int main() {
 
                 while ( true  ) {
                     cout << "Enter number [" << i << "] [" << j << "] of the matrix (should be a natural number):";
-
                     cin >> matrix[i][j];
 
-                     sums[i] += matrix[i][j];
-                    if ( cin.fail() || matrix[i][j] < 0) { // Проверка, что число натуральное (положительное)
+                    if ( cin.fail() || matrix[i][j] < 0 ) {
                         cin.clear(); // Clear error flag
                         cin.ignore( numeric_limits< streamsize>::max(), '\n'); // Discard bad input
                         cout << "Invalid input. Please enter a valid number.\n";
                     } else {
                         break; // Exit loop on valid input
                     }
+
+
+
                 }
+                sums[i] += matrix[i][j]; //
+
                 }
             }
 
