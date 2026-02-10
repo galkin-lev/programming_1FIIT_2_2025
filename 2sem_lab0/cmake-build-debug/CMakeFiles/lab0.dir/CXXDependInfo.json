@@ -1,0 +1,35 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug",
+	"dir-cur-src" : "/home/lv/Uni/programming/CLionProjects/lab0",
+	"dir-top-bld" : "/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug",
+	"dir-top-src" : "/home/lv/Uni/programming/CLionProjects/lab0",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"lab0_autogen/include",
+		"/usr/include/qt6/QtCore",
+		"/usr/include/qt6",
+		"/usr/lib/qt6/mkspecs/linux-g++",
+		"/usr/include/qt6/QtGui",
+		"/usr/include/qt6/QtWidgets"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/lab0.dir",
+	"sources" : 
+	{
+		"CMakeFiles/lab0.dir/main.cpp.o" : 
+		{
+			"language" : "CXX",
+			"source" : "/home/lv/Uni/programming/CLionProjects/lab0/main.cpp"
+		}
+	}
+}

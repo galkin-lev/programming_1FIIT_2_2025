@@ -1,0 +1,5 @@
+/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/lab0.dir
+/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/lab0_autogen_timestamp_deps.dir
+/home/lv/Uni/programming/CLionProjects/lab0/cmake-build-debug/CMakeFiles/lab0_autogen.dir

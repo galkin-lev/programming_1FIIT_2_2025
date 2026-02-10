@@ -1,0 +1,149 @@
+///////build.gradle.kts (project)
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath(libs.hilt.android.gradle.plugin)
+    }
+}
+
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.google.ksp) apply false
+}
+//////////////
+
+
+    //plugins:{
+    alias(libs.plugins.google.ksp)
+    id("com.google.dagger.hilt.android")
+    //}
+    
+    // Dagger - Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.kotlinx.metadata.jvm)
+    
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+
+
+
+    // Room
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.paging)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // ConstraintLayout
+    implementation(libs.androidx.constraintlayout.compose)
+
+    // Viewmodel
+    implementation(libs.androidx.lifecycle.viewmodel.compose.android)
+
+    // Datastore preferences
+    implementation(libs.androidx.datastore.preferences)
+    // for protoDatastore
+    implementation(libs.androidx.datastore)
+
+
+    //serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
+    
+
+
+
+
+
+
+// OLD ///// 
+   // ConstraintLayout
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+
+    // Viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7")
+
+    // Datastore preferences
+    implementation("androidx.datastore:datastore-preferences:1.1.3")
+   // for protoDatastore
+    implementation("androidx.datastore:datastore:1.1.3")
+    
+    // Coil
+    implementation("io.coil-kt:coil-compose:3.1.0")
+    implementation("androidx.work:work-runtime:2.10.0")
+
+ 
+
+    //serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+
+
+ 
+    //implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    //implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+
+     // Dagger - Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
+//
+    // Paging
+    implementation("androidx.paging:paging-runtime-ktx:3.3.6")
+    implementation("androidx.paging:paging-compose:3.3.6")
+//
+    // Retrofit (pull data from API)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+//
+    // Room
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-paging:2.6.1")
+
+
+  // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    
+
+// some icons
+    implementation("androidx.compose.material:material-icons-extended-android:1.7.8")
+
+
+    //Koin
+        implementation("io.insert-koin:koin-android:3.2.0-beta-1")
+    implementation("io.insert-koin:koin-androidx-navigation:3.2.0-beta-1")
+    implementation("io.insert-koin:koin-androidx-compose:3.2.0-beta-1")
+    testImplementation("io.insert-koin:koin-test-junit4:3.2.0-beta-1")
+
+    // Retrofit
+    implementation('com.squareup.retrofit2:retrofit:2.9.0')
+    implementation('com.squareup.retrofit2:converter-moshi:2.9.0')
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+
+
+    // Coil (image url)
+    implementation("io.coil-kt:coil-compose:2.6.0")
+    

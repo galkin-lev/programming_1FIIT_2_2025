@@ -1,0 +1,6 @@
+<RCC>
+<!--    prefix="/res/images/"-->
+    <qresource >
+        <file>/res/images/image_placeholder.png</file>
+    </qresource>
+</RCC>
