@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_lab6_login_registration_FILE /home/lv/Uni/programming/CLionProjects/lab6_login_registration/cmake-build-qt6/lab6_login_registration)
+set(__QT_DEPLOY_TARGET_lab6_login_registration_TYPE EXECUTABLE)
